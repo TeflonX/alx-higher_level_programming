@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 def remove_char_at(str, n):
-    list1 = list(str)
-    for i in range(len(str)):
-        if i != n:
-            list2[i] = list1[i]
-    print("{:c}".format(list2))
+    if n < 0 or n > len(str):
+        return str
+    return str[:n] + str[n+1:]
