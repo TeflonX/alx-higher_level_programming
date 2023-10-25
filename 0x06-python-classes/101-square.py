@@ -70,6 +70,21 @@ class Square:
                     print('#', end='')
                 print()
 
+    def __str__(self):
+        """print square using # or space"""
+        string = ''
+        if self.__size == 0:
+            return (string)
+        else:
+            if self.__position[1] > 0:
+                return (string)
+            for i in range(self.__size):
+                string += ' ' * self.__position[0]
+                for j in range(self.__size):
+                    string += '#'
+                string = string + '/n'
+            return (string)
+
     @property
     def position(self):
         """retrieves the value of the private attribute, position"""
