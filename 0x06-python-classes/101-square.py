@@ -20,9 +20,11 @@ class Square:
             raise TypeError('size must be an integer')
         if size < 0:
             raise ValueError('size must be >= 0')
-        if not type(position) == tuple and len(position) == 2:
+        if not type(position) == tuple or len(position) != 2:
             raise TypeError('position must be a tuple of 2 positive integers')
         if not all(isinstance(x, int) for x in position):
+            raise TypeError('position must be a tuple of 2 positive integers')
+        if not all(x >= 0 for x in position):
             raise TypeError('position must be a tuple of 2 positive integers')
 
     def area(self):
@@ -62,28 +64,27 @@ class Square:
         if self.__size == 0:
             print()
         else:
-            if self.__position[1] > 0:
-                print()
+            for x in range(self.__position[1]):
+                print('')
             for i in range(self.__size):
                 print(' ' * self.__position[0], end='')
-                for j in range(self.__size):
-                    print('#', end='')
+                print('#' * self.__size, end='')
                 print()
 
     def __str__(self):
-        """print square using # or space"""
+        """returns a string representation of a square"""
         string = ''
         if self.__size == 0:
             return (string)
         else:
-            if self.__position[1] > 0:
-                for i in range(self.__poition[1]):
-		    string += '\n'
-		return (string)
-            for i in range(self.__size):
-                string += ' ' * self.__position[0]
-                string += '#' * size
-                if i < self.__size - 1:
+            for x in range(self.__position[1]):
+                string += ''
+                if x == self.__position[1] - 1:
+                    string += '\n'
+            for y in range(self.__size):
+                string += (' ' * self.__position[0])
+                string += ('#' * self.__size)
+                if y < self.__size - 1:
                     string += '\n'
             return (string)
 
@@ -99,7 +100,7 @@ class Square:
         Args:
             size(int): the value of position
         """
-        if not type(position) == tuple and len(position) == 2:
+        if not type(position) == tuple and len(position) != 2:
             raise TypeError('position must be a tuple of 2 positive integers')
         elif not all(isinstance(x, int) for x in position):
             raise TypeError('position must be a tuple of 2 positive integers')
