@@ -78,9 +78,7 @@ class Square:
             return (string)
         else:
             for x in range(self.__position[1]):
-                string += ''
-                if x == self.__position[1] - 1:
-                    string += '\n'
+                string += '\n'
             for y in range(self.__size):
                 string += (' ' * self.__position[0])
                 string += ('#' * self.__size)
