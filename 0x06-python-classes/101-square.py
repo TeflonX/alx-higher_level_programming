@@ -77,12 +77,14 @@ class Square:
             return (string)
         else:
             if self.__position[1] > 0:
-                return (string)
+                for i in range(self.__poition[1]):
+		    string += '\n'
+		return (string)
             for i in range(self.__size):
                 string += ' ' * self.__position[0]
-                for j in range(self.__size):
-                    string += '#'
-                string = string + '/n'
+                string += '#' * size
+                if i < self.__size - 1:
+                    string += '\n'
             return (string)
 
     @property
