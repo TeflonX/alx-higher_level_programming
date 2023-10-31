@@ -64,7 +64,7 @@ class Rectangle:
         Sets the value of a private instance attribute, height
 
         Attr:
-            value(int): height of the attribute
+            height(int): height of the attribute
         """
         if type(self.__height) is not int:
             raise TypeError('height must be an integer')
@@ -87,3 +87,17 @@ class Rectangle:
             return (0)
         else:
             return (2 * self.__width) + (2 * self.__height)
+
+    def __str__(self):
+        """
+        returns the string representation of the rectangle
+        """
+        string = ''
+        if self.__width == 0 or self.__height == 0:
+            return string
+        else:
+            for i in range(self.__height):
+                string += '#' * self.__width
+                if i < self.__height - 1:
+                    string += '\n'
+            return string
