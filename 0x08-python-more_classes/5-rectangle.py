@@ -107,3 +107,9 @@ class Rectangle:
         return a string literal of the rectangle
         """
         return f'Rectangle({self.__width}, {self.__height})'
+
+    def __del__(self):
+        """
+        deletes the instance of a class and prints a message
+        """
+        print("Bye rectangle...")
