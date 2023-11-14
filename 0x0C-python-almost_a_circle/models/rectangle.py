@@ -126,3 +126,10 @@ class Rectangle(Base):
         Calculates the area of the square and returns the value
         """
         return self.__width * self.__height
+
+    def display(self):
+        """
+        prints the square
+        """
+        for i in range(self.__height):
+            print('#' * self.__width)
