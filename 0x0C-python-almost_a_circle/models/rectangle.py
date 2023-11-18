@@ -151,7 +151,6 @@ class Rectangle(Base):
         if len(args) >= 5:
             self.y = args[4]
 
-
     def __str__(self):
         """
         return string representation of the rectangle
