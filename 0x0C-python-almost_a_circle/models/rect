@@ -131,8 +131,10 @@ class Rectangle(Base):
         """
         prints the square
         """
+        for i in range(self.__y):
+            print()
         for i in range(self.__height):
-            print('#' * self.__width)
+            print(' ' * self.__x + '#' * self.__width)
 
     def __str__(self):
         """
@@ -140,3 +142,11 @@ class Rectangle(Base):
         """
         return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
                 f"{self.width}/{self.height}")
+
+    def update(self, *args):
+        """
+        A public method that assigns an argument to each attribute
+        """
+        arg_list = [self.__width, self.__height, self.__x, self.__y, self.id]
+        for i in range(len(args)):
+            arg_list[i] = args[i]
