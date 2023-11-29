@@ -164,7 +164,6 @@ class Rectangle(Base):
             self.x = kwargs.get('x', self.x)
             self.y = kwargs.get('y', self.y)
 
-
     def __str__(self):
         """
         return string representation of the rectangle
