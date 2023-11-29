@@ -136,20 +136,34 @@ class Rectangle(Base):
         for i in range(self.__height):
             print(' ' * self.__x + '#' * self.__width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         A public method that assigns an argument to each attribute
+
+        Args:
+            *args:
+                magic variable
+            *kwargs:
+                magic variable
         """
-        if len(args) >= 1:
-            self.id = args[0]
-        if len(args) >= 2:
-            self.width = args[1]
-        if len(args) >= 3:
-            self.height = args[2]
-        if len(args) >= 4:
-            self.x = args[3]
-        if len(args) >= 5:
-            self.y = args[4]
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.width = args[1]
+            if len(args) >= 3:
+                self.height = args[2]
+            if len(args) >= 4:
+                self.x = args[3]
+            if len(args) >= 5:
+                self.y = args[4]
+        elif kwargs:
+            self.id = kwargs.get('id', self.id)
+            self.width = kwargs.get('width', self.width)
+            self.height = kwargs.get('height', self.height)
+            self.x = kwargs.get('x', self.x)
+            self.y = kwargs.get('y', self.y)
+
 
     def __str__(self):
         """
