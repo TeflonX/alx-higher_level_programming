@@ -2,7 +2,7 @@
 """
 A Square class that inherits from the rectangle class
 """
-from rectangle import Rectangle
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
@@ -26,4 +26,5 @@ class Square(Rectangle):
         """
         Returns the string representation of a square
         """
-        return f"[Square] (<self.id>) <self.x>/<self.y> - <self.size>"
+        return (f"[Square] ({self.id}) {self.x}/"
+                f"{self.y} - {self.width}")
