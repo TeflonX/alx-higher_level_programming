@@ -2,6 +2,8 @@
 """
 A Square class that inherits from the rectangle class
 """
+
+
 from models.rectangle import Rectangle
 
 
