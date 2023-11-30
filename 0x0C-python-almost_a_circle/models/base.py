@@ -92,3 +92,22 @@ class Base:
         for key, value_2 in kwargs.item():
             if key in attribute:
                 setattr(self, key, value_2)
+
+    def load_from_file(cls):
+        """
+        class method that returns a list of instances
+        """
+        file_name = f"cls.__name__.json"
+        instances = []
+
+        try:
+            with open(file_name, "r") as file:
+                json_obj = cls.from_json_string(file.read())
+
+                for obj in json_obj:
+                    instance = cls.create(**obj)
+                    instances.append(instance)
+        except FileNotFoundError:
+            pass
+
+        return instances
