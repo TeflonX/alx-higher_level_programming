@@ -4,6 +4,9 @@ The base class of every other classes in this project
 """
 
 
+import turtle
+
+
 class Base:
     """
     A class named Base
@@ -165,3 +168,55 @@ class Base:
             pass
 
         return li_st
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        static method that opens a window and draws all the
+        Rectangles and Squares
+        """
+        screen = turtle.Screen()
+        screen.bgcolor('white')
+
+        t = turtle.Turtle()
+        t.speed(2)
+
+        for rectangle in list_rectangles:
+            Base._draw_rectangle(t, rectangle)
+
+        for square in list_squares:
+            Base._draw_square(t, square)
+
+        turtle.done()
+
+    @staticmethod
+    def _draw_rectangle(t, rectangle):
+        """
+        draws a rectangle
+        """
+        t.penup()
+        t.goto(rectangle.x, rectangl.y)
+        t.pendown()
+        t.color("black")
+        t.begin_fill()
+        for _ in range(2):
+            t.forward(rectangle.width)
+            t.left(90)
+            t.forward(rectangle.height)
+            t.left(90)
+        t.end_fill
+
+    @staticmethod
+    def _draw_square(t, square):
+        """
+        draws a square
+        """
+        t.penup()
+        t.goto(square.x, square.y)
+        t.pendown()
+        t.color('red')
+        t.begin_fill
+        for _ in range(4):
+            t.forward(rectangle.size)
+            t.left(90)
+        t.end_fill
