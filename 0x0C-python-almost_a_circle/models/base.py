@@ -39,6 +39,8 @@ class Base:
         A static method that returns the list of the JSON string
         representation json_string
         """
+        if json_string is None or len(json_string) == 0:
+            return '[]'
         return json.loads(json_string)
 
     @classmethod
@@ -61,3 +63,32 @@ class Base:
             with open(file_name, "w") as file:
                 json_str = cls.to_json_string(dict_list)
                 file.write(json_str)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        A class that returns an instance with all attributes already set
+        """
+        if cls.__name__ == 'Rectangle':
+            dummy_instance = cls(1, 1)
+        if cls.__name__ == 'Square':
+            dummy_instance = cls(1)
+
+        dummy_instance.update(**dictionary)
+
+        return dummy_instance
+
+
+    def update(self, *args, **kwargs):
+        """
+        A method that sets the values of attributes
+        """
+        attribute = ['id', 'width', 'height', 'size', 'x', 'y']
+
+        if attr:
+            for attr, value in zip(attribute, args):
+                setattr(self, attr, value)
+
+        for key, value_2 in kwargs.item():
+            if key in attribute:
+                setattr(self, key, value_2)
