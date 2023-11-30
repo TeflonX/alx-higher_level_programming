@@ -39,9 +39,10 @@ class Base:
         A static method that returns the list of the JSON string
         representation json_string
         """
-        if json_string is None or len(json_string) == 0:
+        if json_string == None or len(json_string) == 0:
             return '[]'
-        return json.loads(json_string)
+        else:
+            return json.loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -77,7 +78,6 @@ class Base:
         dummy_instance.update(**dictionary)
 
         return dummy_instance
-
 
     def update(self, *args, **kwargs):
         """
