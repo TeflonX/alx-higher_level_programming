@@ -1,3 +1,3 @@
 -- a script that removes all records with a score <= 5 in the table
 -- second_table of the database hbtn_0c_0 in a MySQL server.
-SELECT
+DELETE FROM second_table WHERE score < 6;
